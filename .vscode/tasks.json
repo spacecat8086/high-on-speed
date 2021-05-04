@@ -1,0 +1,64 @@
+{
+    "tasks": [
+        {
+            "type": "process",
+            "label": "C/C++: gcc.exe build(debug)",
+            "command": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-municode",
+                "-g",
+                "${workspaceFolder}\\main.c",
+                "${workspaceFolder}\\vector.c",
+                "${workspaceFolder}\\matrix.c",
+                "${workspaceFolder}\\entity.c",
+                "${workspaceFolder}\\car.c",
+                "${workspaceFolder}\\mesh.c",
+                "-o",
+                "${workspaceFolder}\\Debug\\HighOnSpeed.exe",
+                "-lGdi32"
+            ],
+            "options": {
+                "cwd": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "process",
+            "label": "C/C++: gcc.exe build(release)",
+            "command": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-municode",
+                "-mwindows",
+                "-O2",
+                "-s",
+                "-Wl,--gc-sections",
+                "${workspaceFolder}\\main.c",
+                "${workspaceFolder}\\vector.c",
+                "${workspaceFolder}\\matrix.c",
+                "${workspaceFolder}\\entity.c",
+                "${workspaceFolder}\\car.c",
+                "${workspaceFolder}\\mesh.c",
+                "-o",
+                "${workspaceFolder}\\Release\\HighOnSpeed.exe",
+                "-lGdi32"
+            ],
+            "options": {
+                "cwd": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
