@@ -3,7 +3,7 @@
         {
             "type": "process",
             "label": "C/C++: gcc.exe build(debug)",
-            "command": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "command": "gcc.exe",
             "args": [
                 "-municode",
                 "-g",
@@ -17,9 +17,6 @@
                 "${workspaceFolder}\\Debug\\HighOnSpeed.exe",
                 "-lGdi32"
             ],
-            "options": {
-                "cwd": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin"
-            },
             "problemMatcher": [
                 "$gcc"
             ],
@@ -31,7 +28,7 @@
         {
             "type": "process",
             "label": "C/C++: gcc.exe build(release)",
-            "command": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "command": "gcc.exe",
             "args": [
                 "-municode",
                 "-mwindows",
@@ -48,9 +45,6 @@
                 "${workspaceFolder}\\Release\\HighOnSpeed.exe",
                 "-lGdi32"
             ],
-            "options": {
-                "cwd": "D:\\tools\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin"
-            },
             "problemMatcher": [
                 "$gcc"
             ],
