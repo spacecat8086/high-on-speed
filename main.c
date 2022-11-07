@@ -6,8 +6,11 @@ WNDCLASSEX wc = { sizeof (WNDCLASSEX), 0, WindowProc, 0, 0, NULL, NULL, NULL, NU
 HWND hwnd;
 HDC dc;
 HDC backDC;
+HDC uiDC;
 HBITMAP backBitmap;
+HBITMAP uiBitmap;
 HBRUSH backBrush;
+HBRUSH uiBackBrush;
 HPEN invisiblePen;
 RECT clientRect;
 
@@ -102,6 +105,12 @@ void InitGraphics()
     backBitmap = CreateCompatibleBitmap(dc, clientRect.right, clientRect.bottom);
     SelectObject(backDC, backBitmap);
 
+    uiDC = CreateCompatibleDC(dc);
+    uiBitmap = CreateCompatibleBitmap(dc, clientRect.right, clientRect.bottom);
+    SelectObject(uiDC, uiBitmap);
+    uiBackBrush = CreateSolidBrush(RGB(255, 255, 255));
+    SelectObject(uiDC, uiBackBrush);
+
     backBrush = CreateSolidBrush(RGB(63, 127, 31));
     invisiblePen = GetStockObject(NULL_PEN);
 }
@@ -135,14 +144,8 @@ void Redraw()
     TransformMesh(&car.visual);
     DrawCar(backDC, car.visual.vertices);
 
-    DrawTrees();    
-
-    wchar_t textSpeed[32];
-    wchar_t textHealth[32];
-    wsprintf(textSpeed, L"speed: %d", (int) (fabs(car.v) * 0.216f));
-    wsprintf(textHealth, L"health: %d", health);
-    TextOut(backDC, 20, 20, textSpeed, wcslen(textSpeed));
-    TextOut(backDC, 20, 40, textHealth, wcslen(textHealth));
+    DrawTrees();
+    DrawUI();
 
     BitBlt(dc, 0, 0, clientRect.right, clientRect.bottom, backDC, 0, 0, SRCCOPY);
 }
@@ -232,6 +235,19 @@ void DrawTrees()
         TransformMesh(&trees[i]);
         DrawTree(backDC, trees[i].vertices);
     }
+}
+
+void DrawUI()
+{
+    wchar_t textSpeed[32];
+    wchar_t textHealth[32];
+    wsprintf(textSpeed, L"speed: %d", (int) (fabs(car.v) * 0.216f));
+    wsprintf(textHealth, L"health: %d", health);
+    FillRect(uiDC, &clientRect, uiBackBrush);
+    TextOut(uiDC, 20, 20, textSpeed, wcslen(textSpeed));
+    TextOut(uiDC, 20, 40, textHealth, wcslen(textHealth));
+
+    TransparentBlt(backDC, 0, 0, clientRect.right, clientRect.bottom, uiDC, 0, 0, clientRect.right, clientRect.bottom, RGB(255, 255, 255));
 }
 
 void DrawCar(HDC dc, PVECTOR2 mesh)

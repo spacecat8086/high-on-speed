@@ -15,7 +15,8 @@
                 "${workspaceFolder}\\mesh.c",
                 "-o",
                 "${workspaceFolder}\\Debug\\HighOnSpeed.exe",
-                "-lGdi32"
+                "-lGdi32",
+                "-lMsimg32"
             ],
             "problemMatcher": [
                 "$gcc"
@@ -43,7 +44,8 @@
                 "${workspaceFolder}\\mesh.c",
                 "-o",
                 "${workspaceFolder}\\Release\\HighOnSpeed.exe",
-                "-lGdi32"
+                "-lGdi32",
+                "-lMsimg32"
             ],
             "problemMatcher": [
                 "$gcc"

@@ -26,6 +26,7 @@ void DrawDirtRoad(HDC dc, PVECTOR2 ribbon, int fragments, float width);
 void InitTrees();
 void InitCar();
 void DrawTrees();
+void DrawUI();
 void DetectCollisions();
 
 #endif
