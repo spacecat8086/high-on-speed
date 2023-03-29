@@ -1,6 +1,8 @@
 #ifndef _VECTOR_H_
 #define _VECTOR_H_
 
+#define _USE_MATH_DEFINES
+
 #include <windows.h>
 #include <math.h>
 

@@ -10,7 +10,7 @@
 #define MAX_FRICTION (MAX_STEER_SPEED * MAX_STEER_SPEED / STEERING_RADIUS)
 #define STEERING_FRICTION 0.25f
 #define ROAD_FRICTION 1.0f
-#define AIR_FRICTION 1.0f / 20000000.0f
+#define AIR_FRICTION 1.0f / 60000000.0f
 
 typedef struct _controls
 {
@@ -28,6 +28,5 @@ typedef struct _car
 } CAR, *PCAR;
 
 void Update(PCAR car, float dt);
-void ReadKeys(char key, BOOL state);
 
 #endif

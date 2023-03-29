@@ -8,6 +8,8 @@
 #define _UNICODE
 #endif
 
+#define _USE_MATH_DEFINES
+
 #include <windows.h>
 #include <stdio.h>
 #include <math.h>
@@ -28,5 +30,6 @@ void InitCar();
 void DrawTrees();
 void DrawUI();
 void DetectCollisions();
+void ReadKeys(char key, BOOL state);
 
 #endif

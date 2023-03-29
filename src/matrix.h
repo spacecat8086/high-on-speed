@@ -1,6 +1,8 @@
 #ifndef _MATRIX_H_
 #define _MATRIX_H_
 
+#define _USE_MATH_DEFINES
+
 #include "vector.h"
 #include "math.h"
 

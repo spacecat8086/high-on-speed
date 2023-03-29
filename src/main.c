@@ -1,8 +1,8 @@
 #include "main.h"
 
 const LPWSTR window = L"HighOnSpeed";
-const LPWSTR class = L"GameClass";
-WNDCLASSEX wc = { sizeof (WNDCLASSEX), 0, WindowProc, 0, 0, NULL, NULL, NULL, NULL, NULL, class, NULL };
+LPWSTR class = L"GameClass";
+WNDCLASSEX wc = { sizeof (WNDCLASSEX), 0, WindowProc, 0, 0, NULL, NULL, NULL, NULL, NULL,  L"GameClass", NULL };
 HWND hwnd;
 HDC dc;
 HDC backDC;
